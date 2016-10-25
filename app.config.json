@@ -1,25 +1,25 @@
 {
     "roots": {
-        "/Users/joe.developer/instance/records": {
-            "host": "some.special.instance.com:16001",
+        "C:/dev/instance/records": {
+            "host": "xxxxx.service-now.com",
             "protocol": "http",
-            "user": "admin",
-            "pass": "admin",
             "preLoadList": {
-                "script_includes": ["JSUtil.js", "Transform.js"]
-            }
+                "script_includes": [
+                    "JSUtil.js",
+                    "Transform.js"
+                ]
+            },
+            "auth": "YWRtaW46DASFDAFYWRtaW4="
         },
         "c:/dev/project_a": {
-            "host": "demo001.service-now.com",
-            "user": "admin",
-            "pass": "admin"
+            "host": "xxxx.service-now.com",
+            "auth": "XXAYWRtaW46FDAFAYWRtaW4="
         },
         "c:/dev/project_b": {
-            "host": "demo002.service-now.com",
-            "auth": "YWRtaW46YWRtaW4="
+            "host": "xxxx.service-now.com",
+            "auth": "XXAYWRtaW46ADFAYWRtaW4="
         }
     },
-
     "search": {
         "mine": {
             "query": "active=true^sys_updated_by=javascript:gs.getUserName()^ORsys_created_by=javascript:gs.getUserName()^ORDERBYDESCsys_updated_on",
@@ -43,11 +43,138 @@
             "full_record": true
         }
     },
-
     "preLoad": true,
     "createAllFolders": true,
-
     "ensureUniqueNames": false,
     "ignoreDefaultFolders": false,
-    "debug": false
+    "debug": false,
+    "folders": {
+        "business_rules": {
+            "table": "sys_script",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            },
+            "subDirPattern": "collection/when"
+        },
+        "client_scripts": {
+            "table": "sys_script_client",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            },
+            "subDirPattern": "table/type"
+        },
+        "processors": {
+            "table": "sys_processor",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            }
+        },
+        "script_actions": {
+            "table": "sysevent_script_action",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            },
+            "subDirPattern": "event_name"
+        },
+        "script_includes": {
+            "table": "sys_script_include",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            },
+            "subDirPattern": "client_<client_callable>"
+        },
+        "style_sheets": {
+            "table": "content_css",
+            "key": "name",
+            "fields": {
+                "css": "style"
+            }
+        },
+        "ui_actions": {
+            "table": "sys_ui_action",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            },
+            "subDirPattern": "table/client_<client>"
+        },
+        "ui_macros": {
+            "table": "sys_ui_macro",
+            "key": "name",
+            "fields": {
+                "xhtml": "xml"
+            },
+            "subDirPattern": "category"
+        },
+        "ui_pages": {
+            "table": "sys_ui_page",
+            "key": "name",
+            "fields": {
+                "xhtml": "html",
+                "client.js": "client_script",
+                "server.js": "processing_script"
+            },
+            "subDirPattern": "category"
+        },
+        "ui_scripts": {
+            "table": "sys_ui_script",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            }
+        },
+        "dynamic_content_blocks": {
+            "table": "content_block_programmatic",
+            "key": "name",
+            "fields": {
+                "xhtml": "programmatic_content"
+            },
+            "subDirPattern": "category"
+        },
+        "email_templates": {
+            "table": "sysevent_email_template",
+            "key": "name",
+            "fields": {
+                "html": "message_html"
+            },
+            "subDirPattern": "collection"
+        },
+        "fix_scripts": {
+            "table": "sys_script_fix",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            }
+        },
+        "catalog_client_scripts": {
+            "table": "catalog_script_client",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            },
+            "subDirPattern": "applies_to_<applies_to>/type"
+        },
+        "sys_web_service": {
+            "table": "sys_web_service",
+            "key": "name",
+            "fields": {
+                "js": "script"
+            }
+        },
+        "sp_widget": {
+            "table": "sp_widget",
+            "key": "name",
+            "fields": {
+                "xhtml": "template",
+                "client.js": "client_script",
+                "server.js": "script"
+            },
+            "subDirPattern": "category"
+        }
+    }
 }
