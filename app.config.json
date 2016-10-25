@@ -172,7 +172,9 @@
             "fields": {
                 "xhtml": "template",
                 "client.js": "client_script",
-                "server.js": "script"
+                "server.js": "script",
+                "client.css": "css",
+                "link.js": "link"
             },
             "subDirPattern": "category"
         }
