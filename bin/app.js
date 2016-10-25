@@ -670,7 +670,9 @@ function displayHelp() {
                 '--export <file>          :: export the current setup including downloaded records for quickstart',
                 '--search <search config> :: will run a search on the instance for matching records based on the ' +
                                             'defined search config in the app.config.json file',
-                '--download               :: applies to searching and will download the found records'
+                '--download               :: applies to searching and will download the found records',
+                '--pull                   :: Pull will retrieve a record given a sys_id, search query or file path',
+                '--push                   :: Pushes record to servicenow instance'
 
                ];
     console.log('Help'.green);
